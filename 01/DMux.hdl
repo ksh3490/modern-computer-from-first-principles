@@ -9,10 +9,13 @@
  *          {0, in} if sel == 1
  */
 
-CHIP DMux {
+CHIP myDMux {
     IN in, sel;
     OUT a, b;
 
     PARTS:
     // Put your code here:
+	Not(in=sel, out=notSel);
+	And(a=notSel, b=in, out=a);
+	ANd(a=sel, b=in, out=b);
 }
